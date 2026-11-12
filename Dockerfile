@@ -1,4 +1,4 @@
-# Day 2: package the site into a container image
-FROM nginx:stable-alpine
+# An old base image nobody has updated in years
+FROM nginx:1.19
 COPY site/ /usr/share/nginx/html/
 EXPOSE 80
