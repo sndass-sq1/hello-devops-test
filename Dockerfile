@@ -1,6 +1,4 @@
-# Current base image, patched at build time, with security headers
+# Day 2: package the site into a container image
 FROM nginx:stable-alpine
-RUN apk upgrade --no-cache
-COPY nginx/security-headers.conf /etc/nginx/conf.d/security-headers.conf
 COPY site/ /usr/share/nginx/html/
 EXPOSE 80
