@@ -2,5 +2,5 @@
 const params = new URLSearchParams(window.location.search);
 const visitor = params.get('name');
 if (visitor) {
-  document.getElementById('msg').innerHTML = 'Hello, ' + visitor + '!';
+  document.getElementById('msg').textContent = 'Hello, ' + visitor + '!';
 }
