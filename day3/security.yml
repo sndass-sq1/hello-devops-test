@@ -13,7 +13,7 @@ jobs:
     name: 1 Secret scan (gitleaks)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: >
           docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:latest
           detect --source /repo --no-git --no-banner --redact -v
@@ -22,7 +22,7 @@ jobs:
     name: 2 SAST (semgrep)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: >
           docker run --rm -v "$PWD:/src" semgrep/semgrep
           semgrep scan --config /src/day3/semgrep-rules.yml --error --metrics off /src/site
@@ -31,7 +31,7 @@ jobs:
     name: 3 SCA (trivy fs)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: >
           docker run --rm -v "$PWD:/src" aquasec/trivy:latest
           fs --scanners vuln --severity HIGH,CRITICAL --exit-code 1 /src
@@ -40,7 +40,7 @@ jobs:
     name: 4 Image scan (trivy image)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: docker build -t hello-devops:scan .
       - run: >
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest
@@ -50,7 +50,7 @@ jobs:
     name: 5 IaC scan (trivy config)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: >
           docker run --rm -v "$PWD:/src" aquasec/trivy:latest
           config --severity HIGH,CRITICAL --exit-code 1 /src/infra
@@ -59,7 +59,7 @@ jobs:
     name: 6 DAST (OWASP ZAP)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: docker build -t hello-devops:scan .
       - run: docker run -d --name web -p 8080:80 hello-devops:scan
       - run: >
