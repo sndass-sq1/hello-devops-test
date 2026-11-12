@@ -1,0 +1,16 @@
+# Our SAST rules. A rule is just a code pattern the scanner looks for.
+rules:
+  - id: no-innerhtml-with-variables
+    languages: [javascript]
+    severity: ERROR
+    message: >
+      Putting a variable into innerHTML lets an attacker inject HTML and scripts (XSS).
+      Use textContent instead.
+    patterns:
+      - pattern: $EL.innerHTML = $VALUE
+      - pattern-not: $EL.innerHTML = "..."
+  - id: no-eval
+    languages: [javascript]
+    severity: ERROR
+    message: eval() runs any text as code. Never use it on data.
+    pattern: eval(...)

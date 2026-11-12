@@ -1,0 +1,6 @@
+// New feature: greet the visitor by the name in the URL, e.g. ?name=Asha
+const params = new URLSearchParams(window.location.search);
+const visitor = params.get('name');
+if (visitor) {
+  document.getElementById('msg').innerHTML = 'Hello, ' + visitor + '!';
+}

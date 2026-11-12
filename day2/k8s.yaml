@@ -1,0 +1,34 @@
+# Day 2: run the image on Kubernetes
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-devops
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-devops
+  template:
+    metadata:
+      labels:
+        app: hello-devops
+    spec:
+      containers:
+        - name: web
+          image: hello-devops:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-devops
+spec:
+  type: NodePort
+  selector:
+    app: hello-devops
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30080

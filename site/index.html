@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello DevOps</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <p class="tag">DevOps Bootcamp</p>
+    <h1 id="msg">Loading...</h1>
+    <!-- LAB: change the team name below, commit, push, and watch the pipeline -->
+    <p>Shipped by <strong id="team">Team Unknown</strong></p>
+    <p class="version">version 1.0</p>
+  </main>
+  <script src="greet.js"></script>
+  <script>
+    document.getElementById('msg').textContent = greet('Trainee');
+  </script>
+</body>
+</html>
