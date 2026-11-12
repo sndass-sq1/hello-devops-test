@@ -1,6 +1,6 @@
 // The one piece of "business logic" in our app.
 function greet(name) {
-  return 'Hello, ' + name + '! Welcome to DevOps.';
+  return 'Hi, ' + name + '! Welcome to DevOps.';
 }
 
 // Lets the test (running in Node) load this file too.
