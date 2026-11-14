@@ -14,7 +14,7 @@ One small website that the trainees ship (Day 1), containerise (Day 2) and secur
 |---|---|---|
 | `site/` | all days | The website: `index.html`, `style.css`, `greet.js` |
 | `test/greet.test.js` | Day 1 | Two unit tests, run with `node --test` |
-| `maze/make-maze.sh` | Day 1 | Linux treasure hunt. Run `bash maze/make-maze.sh` in Git Bash |
+| `maze/make-maze.sh` | Day 1 | Linux treasure hunt. In Git Bash: `chmod +x maze/make-maze.sh` then `./maze/make-maze.sh`, then `cd maze/island` |
 | `day1/ci.yml` | Day 1 | Pipeline: test, build, deploy to GitHub Pages. Copy to `.github/workflows/ci.yml` |
 | `day2/Dockerfile` | Day 2 | Copy to the repo root, then `docker build -t hello-devops:1.0 .` |
 | `day2/k8s.yaml` | Day 2 | Deployment (2 pods) and NodePort Service on `localhost:30080` |
